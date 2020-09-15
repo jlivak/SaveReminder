@@ -1,0 +1,9 @@
+/SaveReminderStorage/obj/*
+/SaveReminder/obj/*
+/SaveReminderStorage/bin/*
+/SaveReminderService/obj/*
+/SaveReminderService/bin/*
+/SaveReminder/bin/*
+/.vs/SaveReminder/v15/*
+/.vs/SaveReminder/DesignTimeBuild/.dtbcache
+/.idea/*

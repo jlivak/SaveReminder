@@ -1,0 +1,4 @@
+﻿<Target Name="Rename" AfterTargets="AfterBuild">
+    <Move SourceFiles="$(OUTDIR)SaveReminderService.exe" DestinationFiles="..\SaveReminder\$(OUTDIR)\SaveReminder.service" />
+    <Message Text="Renamed executable file." Importance="high" />
+  </Target>
