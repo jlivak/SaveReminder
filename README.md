@@ -12,6 +12,8 @@ Extract the folder to wherever you want the program to live (for ex. 'C:/Program
 
 You can temporarily pause reminders or return to the configuration utility by right clicking on the Save Reminder icon (white floppy disk) in your taskbar while the reminder service is running.
 
+## Screenshots
+
 ![Screenshot 1](https://static1.squarespace.com/static/5bbd56d0fb22a5551f0a72d5/t/5f604f21e049e715ea2e7d26/1600147235900/SaveReminderImage1.png?format=750w)
 
 ![Screenshot 2](https://static1.squarespace.com/static/5bbd56d0fb22a5551f0a72d5/t/5f604f30b8cf7816195c9324/1600147251137/SaveReminderImage2.png?format=500w)
