@@ -29,9 +29,13 @@ namespace SaveReminder
         private MenuItem _resumeMenuItem;
         
         private readonly string _configFileName = "user.config";
+        private string _pathToConfigFolder
+        {
+            get { return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SaveReminder\\"; }
+        }
         private string _pathToConfig
         {
-            get { return AppDomain.CurrentDomain.BaseDirectory + _configFileName; }
+            get { return _pathToConfigFolder + _configFileName; }
         }
         
         public SaveReminderContext()
@@ -166,7 +170,7 @@ namespace SaveReminder
         protected void OnConfiguration(object sender, EventArgs e)
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "SaveReminder.exe";
+            p.StartInfo.FileName = System.Reflection.Assembly.GetEntryAssembly().Location.Replace("SaveReminder.service", "") + "SaveReminder.exe";
             p.Start();
         }
     }

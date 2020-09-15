@@ -21,5 +21,13 @@ namespace SaveReminderStorage
                 return (T)binaryFormatter.Deserialize(stream);
             }
         }
+
+        public static void CreateFolderIfMissing(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
     }
 }

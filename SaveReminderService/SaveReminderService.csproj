@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F5F99A4-8413-46BE-AB40-154DFF90397F}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>SaveReminderService</RootNamespace>
     <AssemblyName>SaveReminderService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

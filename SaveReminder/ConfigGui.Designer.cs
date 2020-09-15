@@ -48,23 +48,24 @@ namespace SaveReminder
             this.DirectionsLabel = new System.Windows.Forms.Label();
             this.HowToUseLabel = new System.Windows.Forms.Label();
             this.VersionLabel = new System.Windows.Forms.Label();
+            this.DuplicateValidationLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StatusLabel
             // 
             this.StatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.StatusLabel.Location = new System.Drawing.Point(13, 165);
+            this.StatusLabel.Location = new System.Drawing.Point(15, 189);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(201, 23);
             this.StatusLabel.TabIndex = 0;
-            this.StatusLabel.Text = "Program Status";
+            this.StatusLabel.Text = "Service Status";
             this.StatusLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // StoppedLabel
             // 
             this.StoppedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.StoppedLabel.ForeColor = System.Drawing.Color.Crimson;
-            this.StoppedLabel.Location = new System.Drawing.Point(13, 188);
+            this.StoppedLabel.Location = new System.Drawing.Point(15, 212);
             this.StoppedLabel.Name = "StoppedLabel";
             this.StoppedLabel.Size = new System.Drawing.Size(201, 54);
             this.StoppedLabel.TabIndex = 1;
@@ -74,7 +75,7 @@ namespace SaveReminder
             // StartButton
             // 
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.StartButton.Location = new System.Drawing.Point(52, 244);
+            this.StartButton.Location = new System.Drawing.Point(54, 268);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(119, 35);
             this.StartButton.TabIndex = 2;
@@ -85,7 +86,7 @@ namespace SaveReminder
             // StopButton
             // 
             this.StopButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.StopButton.Location = new System.Drawing.Point(52, 285);
+            this.StopButton.Location = new System.Drawing.Point(54, 309);
             this.StopButton.Name = "StopButton";
             this.StopButton.Size = new System.Drawing.Size(119, 35);
             this.StopButton.TabIndex = 3;
@@ -95,7 +96,7 @@ namespace SaveReminder
             // 
             // RunOnStartupCheckbox
             // 
-            this.RunOnStartupCheckbox.Location = new System.Drawing.Point(60, 333);
+            this.RunOnStartupCheckbox.Location = new System.Drawing.Point(62, 357);
             this.RunOnStartupCheckbox.Name = "RunOnStartupCheckbox";
             this.RunOnStartupCheckbox.Size = new System.Drawing.Size(105, 24);
             this.RunOnStartupCheckbox.TabIndex = 4;
@@ -106,7 +107,7 @@ namespace SaveReminder
             // DividerPanel
             // 
             this.DividerPanel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.DividerPanel.Location = new System.Drawing.Point(226, 154);
+            this.DividerPanel.Location = new System.Drawing.Point(228, 178);
             this.DividerPanel.Name = "DividerPanel";
             this.DividerPanel.Size = new System.Drawing.Size(2, 278);
             this.DividerPanel.TabIndex = 5;
@@ -114,7 +115,7 @@ namespace SaveReminder
             // ProgramListBox
             // 
             this.ProgramListBox.FormattingEnabled = true;
-            this.ProgramListBox.Location = new System.Drawing.Point(277, 205);
+            this.ProgramListBox.Location = new System.Drawing.Point(279, 229);
             this.ProgramListBox.Name = "ProgramListBox";
             this.ProgramListBox.Size = new System.Drawing.Size(188, 186);
             this.ProgramListBox.TabIndex = 6;
@@ -123,7 +124,7 @@ namespace SaveReminder
             // ReminderProgramsLabel
             // 
             this.ReminderProgramsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.ReminderProgramsLabel.Location = new System.Drawing.Point(277, 179);
+            this.ReminderProgramsLabel.Location = new System.Drawing.Point(279, 203);
             this.ReminderProgramsLabel.Name = "ReminderProgramsLabel";
             this.ReminderProgramsLabel.Size = new System.Drawing.Size(162, 23);
             this.ReminderProgramsLabel.TabIndex = 7;
@@ -132,7 +133,7 @@ namespace SaveReminder
             // AddButton
             // 
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.AddButton.Location = new System.Drawing.Point(480, 205);
+            this.AddButton.Location = new System.Drawing.Point(482, 229);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(97, 33);
             this.AddButton.TabIndex = 8;
@@ -144,7 +145,7 @@ namespace SaveReminder
             // 
             this.RemoveButton.Enabled = false;
             this.RemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.RemoveButton.Location = new System.Drawing.Point(480, 244);
+            this.RemoveButton.Location = new System.Drawing.Point(482, 268);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(97, 33);
             this.RemoveButton.TabIndex = 9;
@@ -156,7 +157,7 @@ namespace SaveReminder
             // 
             this.RunningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.RunningLabel.ForeColor = System.Drawing.Color.ForestGreen;
-            this.RunningLabel.Location = new System.Drawing.Point(13, 188);
+            this.RunningLabel.Location = new System.Drawing.Point(15, 212);
             this.RunningLabel.Name = "RunningLabel";
             this.RunningLabel.Size = new System.Drawing.Size(201, 54);
             this.RunningLabel.TabIndex = 10;
@@ -167,7 +168,7 @@ namespace SaveReminder
             // 
             this.StartupErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.StartupErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (192)))), ((int) (((byte) (0)))), ((int) (((byte) (0)))));
-            this.StartupErrorLabel.Location = new System.Drawing.Point(16, 361);
+            this.StartupErrorLabel.Location = new System.Drawing.Point(18, 385);
             this.StartupErrorLabel.Name = "StartupErrorLabel";
             this.StartupErrorLabel.Size = new System.Drawing.Size(190, 49);
             this.StartupErrorLabel.TabIndex = 11;
@@ -178,7 +179,7 @@ namespace SaveReminder
             // Divider2PAnel
             // 
             this.Divider2PAnel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Divider2PAnel.Location = new System.Drawing.Point(12, 134);
+            this.Divider2PAnel.Location = new System.Drawing.Point(12, 164);
             this.Divider2PAnel.Name = "Divider2PAnel";
             this.Divider2PAnel.Size = new System.Drawing.Size(587, 2);
             this.Divider2PAnel.TabIndex = 6;
@@ -186,12 +187,11 @@ namespace SaveReminder
             // DirectionsLabel
             // 
             this.DirectionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.DirectionsLabel.Location = new System.Drawing.Point(12, 26);
+            this.DirectionsLabel.Location = new System.Drawing.Point(13, 31);
             this.DirectionsLabel.Name = "DirectionsLabel";
-            this.DirectionsLabel.Size = new System.Drawing.Size(587, 105);
+            this.DirectionsLabel.Size = new System.Drawing.Size(587, 124);
             this.DirectionsLabel.TabIndex = 12;
             this.DirectionsLabel.Text = resources.GetString("DirectionsLabel.Text");
-            this.DirectionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // HowToUseLabel
             // 
@@ -207,18 +207,31 @@ namespace SaveReminder
             // 
             this.VersionLabel.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.VersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.VersionLabel.Location = new System.Drawing.Point(480, 423);
+            this.VersionLabel.Location = new System.Drawing.Point(480, 449);
             this.VersionLabel.Name = "VersionLabel";
             this.VersionLabel.Size = new System.Drawing.Size(134, 23);
             this.VersionLabel.TabIndex = 14;
             this.VersionLabel.Text = "Version 0.0";
             this.VersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // DuplicateValidationLabel
+            // 
+            this.DuplicateValidationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.DuplicateValidationLabel.ForeColor = System.Drawing.Color.FromArgb(((int) (((byte) (192)))), ((int) (((byte) (0)))), ((int) (((byte) (0)))));
+            this.DuplicateValidationLabel.Location = new System.Drawing.Point(251, 418);
+            this.DuplicateValidationLabel.Name = "DuplicateValidationLabel";
+            this.DuplicateValidationLabel.Size = new System.Drawing.Size(297, 49);
+            this.DuplicateValidationLabel.TabIndex = 15;
+            this.DuplicateValidationLabel.Text = "Attempted to add a duplicate program.  To update an entry, please remove the prog" + "ram reminder and re-create it.";
+            this.DuplicateValidationLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.DuplicateValidationLabel.Visible = false;
+            // 
             // ConfigGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 445);
+            this.ClientSize = new System.Drawing.Size(613, 471);
+            this.Controls.Add(this.DuplicateValidationLabel);
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.HowToUseLabel);
             this.Controls.Add(this.DirectionsLabel);
@@ -246,6 +259,7 @@ namespace SaveReminder
         private System.Windows.Forms.Label DirectionsLabel;
         private System.Windows.Forms.Panel Divider2PAnel;
         private System.Windows.Forms.Panel DividerPanel;
+        private System.Windows.Forms.Label DuplicateValidationLabel;
         private System.Windows.Forms.Label HowToUseLabel;
         private System.Windows.Forms.ListBox ProgramListBox;
         private System.Windows.Forms.Label ReminderProgramsLabel;

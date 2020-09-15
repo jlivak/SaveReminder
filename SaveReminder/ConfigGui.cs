@@ -13,16 +13,20 @@ namespace SaveReminder
 {
     public partial class ConfigGui : Form
     {
-        public readonly string Version = "1.0";
+        public readonly string Version = "1.1";
         
         private UserDataV1 _userConfig;
         private bool _listInitialized = false;
         private readonly string _configFileName = "user.config";
         private Timer _updateRunningStatusTimer = new Timer(500);
 
+        private string _pathToConfigFolder
+        {
+            get { return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SaveReminder\\"; }
+        }
         private string _pathToConfig
         {
-            get { return AppDomain.CurrentDomain.BaseDirectory + _configFileName; }
+            get { return _pathToConfigFolder + _configFileName; }
         }
 
         public ConfigGui()
@@ -65,12 +69,7 @@ namespace SaveReminder
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "SaveReminder.service";
-            p.StartInfo.UseShellExecute  = false;
-            p.StartInfo.CreateNoWindow = true;
-            p.Start();
-            
+            StartService();
             StartButton.Enabled = false;
             StopButton.Enabled = false;
             _updateRunningStatusTimer.Start();
@@ -123,7 +122,7 @@ namespace SaveReminder
                     RegistryKey rk =
                         Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
                     if (rk.GetValue("SaveReminderService") == null)
-                        rk.SetValue("SaveReminderService", System.AppContext.BaseDirectory + "SaveReminder.service");
+                        rk.SetValue("SaveReminderService", "cmd.exe /c start \"\" \"" + System.AppContext.BaseDirectory + "SaveReminder.service" + "\"");
                 }
                 else
                 {
@@ -147,11 +146,29 @@ namespace SaveReminder
             var result = dialog.ShowDialog();
             if (result == DialogResult.OK && dialog.ProgramContainerToCreate != null)
             {
+                if (_userConfig.Programs.Any(p => p.ExecutableName == dialog.ProgramContainerToCreate.ExecutableName))
+                {
+                    DuplicateValidationLabel.Visible = true;
+                    return;
+                }
+
+                DuplicateValidationLabel.Visible = false;
+
                 _userConfig.Programs.Add(dialog.ProgramContainerToCreate);
                 ProgramListBox.DataSource = null;
                 ProgramListBox.DataSource = _userConfig.Programs;
 
+                ReadWriteHelper.CreateFolderIfMissing(_pathToConfigFolder);
                 ReadWriteHelper.WriteToBinaryFile(_pathToConfig, _userConfig);
+                
+                //If service is currently running, restart it so it loads new config
+                var runningProcess = Process.GetProcesses().Where(p => p.ProcessName == "SaveReminder.service").ToList();
+                if (runningProcess.Any())
+                {
+                    runningProcess.ForEach(p => p.Kill());
+
+                    StartService();
+                }
             }
         }
 
@@ -173,14 +190,26 @@ namespace SaveReminder
         {
             if (ProgramListBox.SelectedItem != null)
             {
+                DuplicateValidationLabel.Visible = false;
+                
                 _userConfig.Programs.RemoveAll(p =>
                     p.ExecutableName == ((ProgramContainer) ProgramListBox.SelectedItem).ExecutableName);
                 
+                ReadWriteHelper.CreateFolderIfMissing(_pathToConfigFolder);
                 ReadWriteHelper.WriteToBinaryFile(_pathToConfig, _userConfig);
                 
                 ProgramListBox.DataSource = null;
                 ProgramListBox.DataSource = _userConfig.Programs;
             }
+        }
+
+        private void StartService()
+        {
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = "SaveReminder.service";
+            p.StartInfo.UseShellExecute  = false;
+            p.StartInfo.CreateNoWindow = true;
+            p.Start();
         }
     }
 }
